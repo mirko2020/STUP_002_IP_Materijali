@@ -1,0 +1,1 @@
+start javaw -Dfile.encoding=UTF-8  -jar C:\Users\Computer\Workspaces\Eclipse.JEE.005-2020.001-006\STUP_002_IP_Materijali\aplikacija\STUP_003_IP_Korisnici.jar transport
