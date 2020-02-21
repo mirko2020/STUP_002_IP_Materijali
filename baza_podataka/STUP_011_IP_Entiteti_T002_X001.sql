@@ -1,0 +1,17 @@
+USE studiranje; 
+
+ALTER TABLE st_user ADD  CONSTRAINT  CHECK (
+	st_username REGEXP BINARY '^([a-zA-Z0-9_-]|\\.)+$'
+);  
+
+DROP TRIGGER IF EXISTS st_user_BI; 
+
+DELIMITER ZZ 
+CREATE TRIGGER st_user_BI BEFORE INSERT ON st_user
+FOR EACH ROW 
+BEGIN 
+	IF NOT (NEW.st_username REGEXP BINARY '^([a-zA-Z0-9_-]|\\.)+$')  THEN
+		SIGNAL SQLSTATE '45000'; 
+    END IF; 
+END ZZ
+DELIMITER ; 
